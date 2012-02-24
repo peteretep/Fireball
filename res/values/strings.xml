@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="mast_prompt">What mast do you use?</string>
+    <string-array name="mast_array">
+        <item>Selden Cumulus</item>
+        <item>Selden Alto</item>
+        <item>SuperSpars M7</item>
+    </string-array>
+    
+     <string name="sail_prompt">What sails do you use?</string>
+    <string-array name="sail_array">
+        <item>North</item>
+        <item>PinBax</item>
+        <item>MacNamaras</item>
+    </string-array>
+    
+    <string name="app_name">FireballTest</string>
+</resources>
