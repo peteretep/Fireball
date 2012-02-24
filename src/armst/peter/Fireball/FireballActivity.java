@@ -15,7 +15,7 @@ import android.widget.Toast;
 
 public class FireballActivity extends Activity {
     /** Called when the activity is first created. */
-	private Spinner mastSpinner, sailSpinner;
+	private Spinner mastSpinner, sailSpinner, weatherSpinner;
 	private Button submit;
 //	private Button goSettings;
     @Override
@@ -36,6 +36,11 @@ public class FireballActivity extends Activity {
     sailAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
     sailSpinner.setAdapter(sailAdapter);
 
+    weatherSpinner = (Spinner) findViewById(R.id.weatherSpinner);
+    ArrayAdapter<CharSequence> weatherAdapter = ArrayAdapter.createFromResource(
+            this, R.array.weather_array, android.R.layout.simple_spinner_item);
+    weatherAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+    weatherSpinner.setAdapter(weatherAdapter);
    
     submit = (Button) findViewById(R.id.submit);
     
@@ -53,6 +58,7 @@ public class FireballActivity extends Activity {
 	    Bundle bundle = new Bundle();
 	    bundle.putString("MAST", String.valueOf(mastSpinner.getSelectedItem()));
 	    bundle.putString("SAILS", String.valueOf(sailSpinner.getSelectedItem()));
+	    bundle.putString("WEATHER", String.valueOf(weatherSpinner.getSelectedItem()));
 	    i.putExtras(bundle);
         startActivity(i);
 	  }

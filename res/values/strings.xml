@@ -14,5 +14,12 @@
         <item>MacNamaras</item>
     </string-array>
     
+    <string name="weather_prompt">What is the weather like?</string>
+    <string-array name="weather_array">
+        <item>Heavy</item>
+        <item>Medium</item>
+        <item>Light</item>
+    </string-array>
+    
     <string name="app_name">FireballTest</string>
 </resources>
