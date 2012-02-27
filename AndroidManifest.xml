@@ -10,18 +10,24 @@
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name" >
         <activity
-            android:name=".FireballActivity"
+            android:name=".Main"
            android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity class=".FireballActivity"
+            android:name=".FireballActivity"
+            android:label="FireballActivity" > 
+            </activity>
+            <activity class=".NewSetup"
+                android:name=".NewSetup"
+                android:label="NewSEtup">
+            </activity>
         <activity class=".Settings"
             android:name=".Settings"
             android:label="Settings" >
-            
         </activity>
     </application>
 

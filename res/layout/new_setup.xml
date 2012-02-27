@@ -28,19 +28,6 @@
         android:layout_height="wrap_content"
         android:prompt="@string/sail_prompt"
     />
-    
-    <TextView
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dip"
-        android:text="@string/weather_prompt"
-    />
-    <Spinner 
-        android:id="@+id/weatherSpinner"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:prompt="@string/weather_prompt"
-    />
     <Button 
         android:id="@+id/submit"
         android:layout_width="wrap_content"

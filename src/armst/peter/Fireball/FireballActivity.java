@@ -13,26 +13,16 @@ import android.widget.Toast;
 
 public class FireballActivity extends Activity {
     /** Called when the activity is first created. */
-	private Spinner mastSpinner, sailSpinner, weatherSpinner;
+	private Spinner weatherSpinner;
 	private Button submit;
 //	private Button goSettings;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fireball_criteria);
-        
-        
-    mastSpinner = (Spinner) findViewById(R.id.mastSpinner);
-    ArrayAdapter<CharSequence> mastAdapter = ArrayAdapter.createFromResource(
-            this, R.array.mast_array, android.R.layout.simple_spinner_item);
-    mastAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-    mastSpinner.setAdapter(mastAdapter);
-    
-    sailSpinner = (Spinner) findViewById(R.id.sailSpinner);
-    ArrayAdapter<CharSequence> sailAdapter = ArrayAdapter.createFromResource(
-            this, R.array.sail_array, android.R.layout.simple_spinner_item);
-    sailAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-    sailSpinner.setAdapter(sailAdapter);
+        Bundle bundle=getIntent().getExtras();
+        final String mast=bundle.getString("MAST");
+        final String sail=bundle.getString("SAILS");
 
     weatherSpinner = (Spinner) findViewById(R.id.weatherSpinner);
     ArrayAdapter<CharSequence> weatherAdapter = ArrayAdapter.createFromResource(
@@ -49,13 +39,12 @@ public class FireballActivity extends Activity {
  
 	    Toast.makeText(FireballActivity.this,
 		"Setup : " + 
-                "\nMast : "+ String.valueOf(mastSpinner.getSelectedItem()) + 
-                "\nSails : "+ String.valueOf(sailSpinner.getSelectedItem()),
+                "\nMast : "+ String.valueOf(mast) + "\nSails : "+ String.valueOf(sail),
 			Toast.LENGTH_SHORT).show();
 	    Intent i = new Intent(FireballActivity.this, Settings.class);
 	    Bundle bundle = new Bundle();
-	    bundle.putString("MAST", String.valueOf(mastSpinner.getSelectedItem()));
-	    bundle.putString("SAILS", String.valueOf(sailSpinner.getSelectedItem()));
+	    bundle.putString("MAST", String.valueOf(mast));
+	    bundle.putString("SAILS", String.valueOf(sail));
 	    bundle.putString("WEATHER", String.valueOf(weatherSpinner.getSelectedItem()));
 	    i.putExtras(bundle);
         startActivity(i);
