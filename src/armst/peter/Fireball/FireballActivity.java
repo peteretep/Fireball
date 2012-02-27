@@ -52,7 +52,7 @@ public class FireballActivity extends Activity {
                 "\nMast : "+ String.valueOf(mastSpinner.getSelectedItem()) + 
                 "\nSails : "+ String.valueOf(sailSpinner.getSelectedItem()),
 			Toast.LENGTH_SHORT).show();
-	    Intent i = new Intent(FireballActivity.this, Weather.class);
+	    Intent i = new Intent(FireballActivity.this, Settings.class);
 	    Bundle bundle = new Bundle();
 	    bundle.putString("MAST", String.valueOf(mastSpinner.getSelectedItem()));
 	    bundle.putString("SAILS", String.valueOf(sailSpinner.getSelectedItem()));
