@@ -20,7 +20,7 @@ public class FireballActivity extends Activity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.fireball_criteria);
+        setContentView(R.layout.weather);
 
 
     weatherSpinner = (Spinner) findViewById(R.id.weatherSpinner);
