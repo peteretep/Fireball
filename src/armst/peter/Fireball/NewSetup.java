@@ -2,6 +2,7 @@ package armst.peter.Fireball;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -14,6 +15,7 @@ public class NewSetup extends Activity
 {
 	private Spinner mastSpinner, sailSpinner;
 	private Button submit;
+	public static final String PREFS_NAME="MyPrefsFile";
 //	private Button goSettings;
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -41,16 +43,20 @@ public class NewSetup extends Activity
 	  @Override
 	  public void onClick(View v) {
  
+		  SharedPreferences settings = getSharedPreferences(PREFS_NAME, MODE_WORLD_READABLE);
+		  SharedPreferences.Editor editor=settings.edit();
+		  editor.putString("MAST", String.valueOf(mastSpinner.getSelectedItem()));
+		  editor.putString("SAILS", String.valueOf(sailSpinner.getSelectedItem()));
+		  editor.commit();
+		  
+		  
 	    Toast.makeText(NewSetup.this,
 		"Setup : " + 
                 "\nMast : "+ String.valueOf(mastSpinner.getSelectedItem()) + 
                 "\nSails : "+ String.valueOf(sailSpinner.getSelectedItem()),
 			Toast.LENGTH_SHORT).show();
-	  Intent i = new Intent(NewSetup.this, FireballActivity.class);
-	    Bundle bundle = new Bundle();
-	    bundle.putString("MAST", String.valueOf(mastSpinner.getSelectedItem()));
-	    bundle.putString("SAILS", String.valueOf(sailSpinner.getSelectedItem()));
-	    i.putExtras(bundle);
+	    Intent i = new Intent(NewSetup.this, Main.class);
+	    
         startActivity(i);
 	  }
  

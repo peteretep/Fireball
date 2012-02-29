@@ -1,10 +1,13 @@
 package armst.peter.Fireball;
 import android.app.Activity;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.TextView;
 
 public class Settings extends Activity
 {
+	public static final String PREFS_NAME="MyPrefsFile";
+
    public void onCreate(Bundle savedInstanceState)
    {
      super.onCreate(savedInstanceState);
@@ -14,9 +17,12 @@ public class Settings extends Activity
      String rake="o";
      String fairlead;
      String centerboard; 
-     String mast=bundle.getString("MAST");
-     String sail=bundle.getString("SAILS");
+     
      String weather=bundle.getString("WEATHER");
+     SharedPreferences settings=this.getSharedPreferences(PREFS_NAME, MODE_WORLD_READABLE);
+     String mast=settings.getString("MAST", "?mast");
+     String sail=settings.getString("SAILS", "?sails");
+     
      
      if(mast.equals("Selden Cumulus") ) {
     	 if(sail.equals("North")) {

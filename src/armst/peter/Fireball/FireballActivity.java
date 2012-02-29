@@ -3,6 +3,7 @@ package armst.peter.Fireball;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -20,9 +21,7 @@ public class FireballActivity extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fireball_criteria);
-        Bundle bundle=getIntent().getExtras();
-        final String mast=bundle.getString("MAST");
-        final String sail=bundle.getString("SAILS");
+
 
     weatherSpinner = (Spinner) findViewById(R.id.weatherSpinner);
     ArrayAdapter<CharSequence> weatherAdapter = ArrayAdapter.createFromResource(
@@ -37,14 +36,10 @@ public class FireballActivity extends Activity {
 	  @Override
 	  public void onClick(View v) {
  
-	    Toast.makeText(FireballActivity.this,
-		"Setup : " + 
-                "\nMast : "+ String.valueOf(mast) + "\nSails : "+ String.valueOf(sail),
-			Toast.LENGTH_SHORT).show();
+	   
 	    Intent i = new Intent(FireballActivity.this, Settings.class);
 	    Bundle bundle = new Bundle();
-	    bundle.putString("MAST", String.valueOf(mast));
-	    bundle.putString("SAILS", String.valueOf(sail));
+	  
 	    bundle.putString("WEATHER", String.valueOf(weatherSpinner.getSelectedItem()));
 	    i.putExtras(bundle);
         startActivity(i);
