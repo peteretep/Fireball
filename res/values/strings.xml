@@ -11,7 +11,7 @@
     <string-array name="sail_array">
         <item>North</item>
         <item>PinBax</item>
-        <item>MacNamaras</item>
+        <item>MacNamara</item>
     </string-array>
     
     <string name="weather_prompt">What is the weather like?</string>
@@ -19,6 +19,7 @@
         <item>Heavy</item>
         <item>Medium</item>
         <item>Light</item>
+        <item >Very Light</item>
     </string-array>
     
     <string name="app_name">FireballTest</string>

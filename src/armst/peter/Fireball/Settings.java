@@ -1,7 +1,11 @@
 package armst.peter.Fireball;
 import android.app.Activity;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.widget.TextView;
 
 public class Settings extends Activity
@@ -14,9 +18,11 @@ public class Settings extends Activity
      setContentView(R.layout.settings_layout);
      Bundle bundle=getIntent().getExtras();
      
-     String rake="o";
-     String fairlead;
-     String centerboard; 
+     String rake="";
+     String fairleadFromCentre = "";
+     String centerboard = ""; 
+     String tension="";
+     
      
      String weather=bundle.getString("WEATHER");
      SharedPreferences settings=this.getSharedPreferences(PREFS_NAME, MODE_WORLD_READABLE);
@@ -26,37 +32,72 @@ public class Settings extends Activity
      
      if(mast.equals("Selden Cumulus") ) {
     	 if(sail.equals("North")) {
-    		 if(weather.equals("Light")) {
-    			 rake="22'8";
+    		 if(weather.equals("Very Light")) {
+    			 rake="22'8'' or 6910mm";
+    			 tension = "390lbs";
+    			 fairleadFromCentre="250mm";
     			 
     		 }
+    		 if(weather.equals("Light")) {
+    			 rake="22'8'' or 6910mm";
+    			 tension="400lbs";
+    			 fairleadFromCentre="255mm";
+    		 }
     		 else if (weather.equals("Medium")) {
-    			 rake="22'6";
+    			 rake="22'6'' or 6860mm";
+    			 tension="400lbs";
+    			 fairleadFromCentre="270mm";
     		 }
     		 else if (weather.equals("Heavy")) {
-    			 rake ="22'2";
+    			 rake="22'4'' or 6810mm";
+    			 tension="330lbs";
+    			 fairleadFromCentre="285mm";
     		 }	
     	 }
     	 if(sail.equals("PinBax")) {
+    		 if(weather.equals("Very Light")) {
+    			 rake="22'8'' or 6910mm";
+    			 tension = "390lbs";
+    			 fairleadFromCentre="250mm";
+    			 
+    		 }
     		 if(weather.equals("Light")) {
-    			rake="Straight";
+    			 rake="22'8'' or 6910mm";
+    			 tension="400lbs";
+    			 fairleadFromCentre="255mm";
     		 }
     		 else if (weather.equals("Medium")) {
-    			 rake="Medium";
+    			 rake="22'6'' or 6860mm";
+    			 tension="400lbs";
+    			 fairleadFromCentre="270mm";
     		 }
     		 else if (weather.equals("Heavy")) {
-    			 rake="Straight";
+    			 rake="22'4'' or 6810mm";
+    			 tension="330lbs";
+    			 fairleadFromCentre="285mm";
     		 }	
     	 }
     	 if(sail.equals("MacNamara")) {
+    		 if(weather.equals("Very Light")) {
+    			 rake="22'8'' or 6910mm";
+    			 tension = "390lbs";
+    			 fairleadFromCentre="250mm";
+    			 
+    		 }
     		 if(weather.equals("Light")) {
-    			rake="Straight";
+    			 rake="22'8'' or 6910mm";
+    			 tension="400lbs";
+    			 fairleadFromCentre="255mm";
     		 }
     		 else if (weather.equals("Medium")) {
-    			 rake="Medium";
+    			 rake="22'6'' or 6860mm";
+    			 tension="400lbs";
+    			 fairleadFromCentre="270mm";
     		 }
     		 else if (weather.equals("Heavy")) {
-    			 rake="Straight";
+    			 rake="22'4'' or 6810mm";
+    			 tension="330lbs";
+    			 fairleadFromCentre="285mm";
     		 }	 
     	 }
     	 
@@ -65,37 +106,73 @@ public class Settings extends Activity
      
      else if(mast.equals("Selden Alto")) {
     	 if(sail.equals("North")) {
+    		 if(weather.equals("Very Light")) {
+    			 rake="22'8'' or 6910mm";
+    			 tension = "390lbs";
+    			 fairleadFromCentre="250mm";
+    			 
+    		 }
     		 if(weather.equals("Light")) {
-    			 rake="22'8";
+    			 rake="22'8'' or 6910mm";
+    			 tension="400lbs";
+    			 fairleadFromCentre="255mm";
     		 }
     		 else if (weather.equals("Medium")) {
-    			 rake="22'6";
+    			 rake="22'6'' or 6860mm";
+    			 tension="400lbs";
+    			 fairleadFromCentre="270mm";
     		 }
     		 else if (weather.equals("Heavy")) {
-    			 rake="22'2";
-    		 }	
+    			 rake="22'4'' or 6810mm";
+    			 tension="330lbs";
+    			 fairleadFromCentre="285mm";
+    		 }
     	 }
     	 if(sail.equals("PinBax")) {
+    		 if(weather.equals("Very Light")) {
+    			 rake="22'8'' or 6910mm";
+    			 tension = "390lbs";
+    			 fairleadFromCentre="250mm";
+    			 
+    		 }
     		 if(weather.equals("Light")) {
-    			 rake="Straight";
+    			 rake="22'8'' or 6910mm";
+    			 tension="400lbs";
+    			 fairleadFromCentre="255mm";
     		 }
     		 else if (weather.equals("Medium")) {
-    			 rake="Straight";
+    			 rake="22'6'' or 6860mm";
+    			 tension="400lbs";
+    			 fairleadFromCentre="270mm";
     		 }
     		 else if (weather.equals("Heavy")) {
-    			 rake="Straight";
-    		 }	
+    			 rake="22'4'' or 6810mm";
+    			 tension="330lbs";
+    			 fairleadFromCentre="285mm";
+    		 }
     	 }
     	 if(sail.equals("MacNamara")) {
+    		 if(weather.equals("Very Light")) {
+    			 rake="22'8'' or 6910mm";
+    			 tension = "390lbs";
+    			 fairleadFromCentre="250mm";
+    			 
+    		 }
     		 if(weather.equals("Light")) {
-    			 rake="Straight";
+    			 rake="22'8'' or 6910mm";
+    			 tension="400lbs";
+    			 fairleadFromCentre="255mm";
     		 }
     		 else if (weather.equals("Medium")) {
-    			 rake="Straight";
+    			 rake="22'6'' or 6860mm";
+    			 tension="400lbs";
+    			 fairleadFromCentre="270mm";
     		 }
     		 else if (weather.equals("Heavy")) {
-    			 rake="Straight";
-    		 }	 
+    			 rake="22'4'' or 6810mm";
+    			 tension="330lbs";
+    			 fairleadFromCentre="285mm";
+    		 } 
     	 }
     	 
     		 
@@ -103,45 +180,117 @@ public class Settings extends Activity
      
      else if(mast.equals("SuperSpars M7")) {
     	 if(sail.equals("North")) {
-    		 	rake="22'8";
-      	      
+    		 if(weather.equals("Very Light")) {
+    			 rake="22'8'' or 6910mm";
+    			 tension = "390lbs";
+    			 fairleadFromCentre="250mm";
+    			 
+    		 }
+    		 if(weather.equals("Light")) {
+    			 rake="22'8'' or 6910mm";
+    			 tension="400lbs";
+    			 fairleadFromCentre="255mm";
     		 }
     		 else if (weather.equals("Medium")) {
-    			 rake="22'6";
+    			 rake="22'6'' or 6860mm";
+    			 tension="400lbs";
+    			 fairleadFromCentre="270mm";
     		 }
     		 else if (weather.equals("Heavy")) {
-    			 rake="22'2";
+    			 rake="22'4'' or 6810mm";
+    			 tension="330lbs";
+    			 fairleadFromCentre="285mm";
     		 }	
     	 }
     	 if(sail.equals("PinBax")) {
+    		 if(weather.equals("Very Light")) {
+    			 rake="22'8'' or 6910mm";
+    			 tension = "390lbs";
+    			 fairleadFromCentre="250mm";
+    			 
+    		 }
     		 if(weather.equals("Light")) {
-    			 rake="Straight";
+    			 rake="22'8'' or 6910mm";
+    			 tension="400lbs";
+    			 fairleadFromCentre="255mm";
     		 }
     		 else if (weather.equals("Medium")) {
-    			 rake="Straight";
+    			 rake="22'6'' or 6860mm";
+    			 tension="400lbs";
+    			 fairleadFromCentre="270mm";
     		 }
     		 else if (weather.equals("Heavy")) {
-    			 rake="Straight";
-    		 }	
+    			 rake="22'4'' or 6810mm";
+    			 tension="330lbs";
+    			 fairleadFromCentre="285mm";
+    		 }
     	 }
-    	 if(sail.equals("MacNamara")) {
+    	 if(sail.equals("MacNamara")) { 
+    		 if(weather.equals("Very Light")) {
+    			 rake="22'8'' or 6910mm";
+    			 tension = "390lbs";
+    			 fairleadFromCentre="250mm";
+    			 
+    		 }
     		 if(weather.equals("Light")) {
-    			 rake="Straight";
+    			 rake="22'8'' or 6910mm";
+    			 tension="400lbs";
+    			 fairleadFromCentre="255mm";
     		 }
     		 else if (weather.equals("Medium")) {
-    			 rake="Straight";
+    			 rake="22'6'' or 6860mm";
+    			 tension="400lbs";
+    			 fairleadFromCentre="270mm";
     		 }
     		 else if (weather.equals("Heavy")) {
-    			 rake="Straight";
-    		 }	 
+    			 rake="22'4'' or 6810mm";
+    			 tension="330lbs";
+    			 fairleadFromCentre="285mm";
+    		 } 
     	 }
+     }
     	 
-    		 
-     
-     TextView rakeView=new TextView(this);
-     rakeView.setText("Set your Mast Rake to: " +rake);
-     setContentView(rakeView);
+    	 TextView rakeValue = (TextView) findViewById(R.id.rakevalue); 
+    	 rakeValue.setText(rake);	
+    	 TextView tensionValue = (TextView) findViewById(R.id.tensionvalue); 
+    	 tensionValue.setText(tension);		
+    	 TextView fairleadValue = (TextView) findViewById(R.id.fairleadvalue); 
+    	 fairleadValue.setText(fairleadFromCentre);	
+    
+    
   }
+   
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		MenuInflater inflater = getMenuInflater();
+		inflater.inflate(R.menu.mainmenu, menu);
+		return true;
+	}
+
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		switch (item.getItemId()) {
+		// We have only one menu option
+		
+		case R.id.home:
+			Intent i = new Intent(Settings.this, Main.class);
+			startActivity(i);
+			break;
+		case R.id.settings:
+			i=new Intent(Settings.this, Settings.class);
+			startActivity(i);
+			break;
+		case R.id.newSetup:
+			// Launch Preference activity
+			i = new Intent(Settings.this, NewSetup.class);
+			startActivity(i);
+			// Some feedback to the user
+			break;
+			
+
+		}
+		return true;
+	}
 }
    
    

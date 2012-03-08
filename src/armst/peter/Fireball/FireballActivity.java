@@ -5,6 +5,9 @@ import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ArrayAdapter;
@@ -47,7 +50,37 @@ public class FireballActivity extends Activity {
  
 	});
     }
-    
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		MenuInflater inflater = getMenuInflater();
+		inflater.inflate(R.menu.mainmenu, menu);
+		return true;
+	}
+
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		switch (item.getItemId()) {
+		// We have only one menu option
+		
+		case R.id.home:
+			Intent i = new Intent(FireballActivity.this, Main.class);
+			startActivity(i);
+			break;
+		case R.id.settings:
+			i=new Intent(FireballActivity.this, Settings.class);
+			startActivity(i);
+			break;
+		case R.id.newSetup:
+			// Launch Preference activity
+			i = new Intent(FireballActivity.this, NewSetup.class);
+			startActivity(i);
+			// Some feedback to the user
+			break;
+			
+
+		}
+		return true;
+	}
     
 
 }

@@ -4,16 +4,56 @@
     android:layout_height="fill_parent"
     android:orientation="vertical" >
 
-    <Button
-        android:id="@+id/settings"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Get Settings" />
+        
 
-    <Button
-        android:id="@+id/setup"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="First Setup" />
+        <RelativeLayout
+            android:id="@+id/relativeLayout1"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" >
+            
+            <Button
+            android:id="@+id/setup"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_marginTop="40dip"
+            android:layout_marginLeft="160dp"
+            android:background="@drawable/measuringtape"
+            android:height="150dip"
+            android:width="150dip" />
+            
+            <Button
+            android:id="@+id/settings"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_marginTop="40dip"
+             android:layout_marginLeft="10dp"
+            android:background="@drawable/sailingclip"
+            android:clickable="true" />
+            
+           	<Button
+            android:id="@+id/weather"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_marginTop="220dp"
+             android:layout_marginLeft="10dp"
+            android:background="@drawable/weather"
+            android:width="150dip" />
+           	
+           		<Button
+            android:id="@+id/results"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_marginTop="220dp"
+            android:layout_marginLeft="160dp"
+            android:background="@drawable/results"
+            android:width="150dip" />
+            
+            
+            
+        </RelativeLayout>
+
+       
+
+
 
 </LinearLayout>
