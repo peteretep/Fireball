@@ -11,7 +11,7 @@ import android.widget.TextView;
 public class Settings extends Activity
 {
 	public static final String PREFS_NAME="MyPrefsFile";
-
+		
    public void onCreate(Bundle savedInstanceState)
    {
      super.onCreate(savedInstanceState);
@@ -26,6 +26,12 @@ public class Settings extends Activity
      
      String weather=bundle.getString("WEATHER");
      SharedPreferences settings=this.getSharedPreferences(PREFS_NAME, MODE_WORLD_READABLE);
+     boolean haveWeShownPreferences=settings.getBoolean("HaveShownPrefs", false);
+     if(!haveWeShownPreferences) {
+    	Intent i=new Intent(Settings.this, NewSetup.class);
+ 		startActivity(i);
+     }
+     
      String mast=settings.getString("MAST", "?mast");
      String sail=settings.getString("SAILS", "?sails");
      

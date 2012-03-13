@@ -45,6 +45,7 @@ public class NewSetup extends Activity
  
 		  SharedPreferences settings = getSharedPreferences(PREFS_NAME, MODE_WORLD_READABLE);
 		  SharedPreferences.Editor editor=settings.edit();
+		  editor.putBoolean("HaveShownPrefs", true);
 		  editor.putString("MAST", String.valueOf(mastSpinner.getSelectedItem()));
 		  editor.putString("SAILS", String.valueOf(sailSpinner.getSelectedItem()));
 		  editor.commit();
@@ -55,7 +56,7 @@ public class NewSetup extends Activity
                 "\nMast : "+ String.valueOf(mastSpinner.getSelectedItem()) + 
                 "\nSails : "+ String.valueOf(sailSpinner.getSelectedItem()),
 			Toast.LENGTH_SHORT).show();
-	    Intent i = new Intent(NewSetup.this, Main.class);
+	    Intent i = new Intent(NewSetup.this, FireballActivity.class);
 	    
         startActivity(i);
 	  }

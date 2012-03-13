@@ -19,13 +19,21 @@ public class FireballActivity extends Activity {
     /** Called when the activity is first created. */
 	private Spinner weatherSpinner;
 	private Button submit;
+	public static final String PREFS_NAME="MyPrefsFile";
 //	private Button goSettings;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        
+        
+        SharedPreferences settings=this.getSharedPreferences(PREFS_NAME, MODE_WORLD_READABLE);
+        boolean haveWeShownPreferences=settings.getBoolean("HaveShownPrefs", false);
+        if(!haveWeShownPreferences) {
+       	Intent i=new Intent(FireballActivity.this, NewSetup.class);
+    		startActivity(i);
+        }
+
         setContentView(R.layout.weather);
-
-
     weatherSpinner = (Spinner) findViewById(R.id.weatherSpinner);
     ArrayAdapter<CharSequence> weatherAdapter = ArrayAdapter.createFromResource(
             this, R.array.weather_array, android.R.layout.simple_spinner_item);
