@@ -24,8 +24,15 @@
 		        android:layout_width="fill_parent"
 		        android:layout_height="wrap_content"
 		        android:layout_marginTop="10dip"
-		        android:text="Mast Rake - Measure from top of mast to transom" />
+		        android:text="Mast Rake" />
+	            
 		        </TableRow>
+		        
+	         <TextView
+		        android:layout_width="fill_parent"
+		        android:layout_height="wrap_content"
+		        android:layout_marginTop="10dip"
+		        android:text="Measure from top of mast to transom" />
 		        <TextView 
 		            android:id="@+id/rakevalue"
 		            android:textSize="30dp"/>
@@ -38,7 +45,7 @@
 	       android:layout_width="fill_parent"
 	       android:layout_height="wrap_content"
 	       android:layout_marginTop="10dip"
-	       android:text="Tension" />
+	       android:text="Rig Tension" />
 	        </TableRow>
 	         <TextView 
 		            android:id="@+id/tensionvalue"

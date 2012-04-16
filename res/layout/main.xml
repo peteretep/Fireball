@@ -17,7 +17,7 @@
             android:layout_height="150dp"
             android:layout_marginTop="40dip"
             android:layout_marginLeft="160dp"
-            android:background="@drawable/measuringtape"
+            android:background="@drawable/setup_button"
             android:height="150dip"
             android:width="150dip" />
             
@@ -27,7 +27,7 @@
             android:layout_height="150dp"
             android:layout_marginTop="40dip"
              android:layout_marginLeft="10dp"
-            android:background="@drawable/sailingclip"
+            android:background="@drawable/sail_button"
             android:clickable="true" />
             
            	<Button
@@ -36,7 +36,7 @@
             android:layout_height="150dp"
             android:layout_marginTop="220dp"
              android:layout_marginLeft="10dp"
-            android:background="@drawable/weather"
+            android:background="@drawable/weather_button"
             android:width="150dip" />
            	
            		<Button
@@ -45,7 +45,7 @@
             android:layout_height="150dp"
             android:layout_marginTop="220dp"
             android:layout_marginLeft="160dp"
-            android:background="@drawable/results"
+            android:background="@drawable/results_button"
             android:width="150dip" />
             
             
