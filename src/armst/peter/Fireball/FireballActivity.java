@@ -4,6 +4,7 @@ package armst.peter.Fireball;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -13,18 +14,21 @@ import android.view.View.OnClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class FireballActivity extends Activity {
     /** Called when the activity is first created. */
 	private Spinner weatherSpinner;
 	private Button submit;
+	private Button home;
 	public static final String PREFS_NAME="MyPrefsFile";
 //	private Button goSettings;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         
+
         
         SharedPreferences settings=this.getSharedPreferences(PREFS_NAME, MODE_WORLD_READABLE);
         boolean haveWeShownPreferences=settings.getBoolean("HaveShownPrefs", false);
@@ -57,14 +61,29 @@ public class FireballActivity extends Activity {
 	  }
  
 	});
+	
+	
+	home=(Button) findViewById(R.id.homeButton);
+	home.setOnClickListener(new OnClickListener() {
+		@Override
+		  public void onClick(View v) {
+	 
+		   
+		    Intent i = new Intent(FireballActivity.this, Main.class);
+		    startActivity(i);
+		  }
+	});
     }
+    
+
+    //Creates the menu
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		MenuInflater inflater = getMenuInflater();
 		inflater.inflate(R.menu.mainmenu, menu);
 		return true;
 	}
-
+	//Tells the menu what to do
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		switch (item.getItemId()) {
@@ -74,7 +93,7 @@ public class FireballActivity extends Activity {
 			Intent i = new Intent(FireballActivity.this, Main.class);
 			startActivity(i);
 			break;
-		case R.id.settings:
+		case R.id.settingsMenu:
 			i=new Intent(FireballActivity.this, Settings.class);
 			startActivity(i);
 			break;
@@ -84,7 +103,12 @@ public class FireballActivity extends Activity {
 			startActivity(i);
 			// Some feedback to the user
 			break;
-			
+		case R.id.weather:
+			// Launch Preference activity
+			i = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.met.ie/forecasts/sea-area.asp"));
+			startActivity(i);
+			// Some feedback to the user
+			break;			
 
 		}
 		return true;

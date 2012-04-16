@@ -22,5 +22,12 @@
         <item >Very Light</item>
     </string-array>
     
-    <string name="app_name">FireballTest</string>
+    <string name="app_name">Fireball Settings</string>
+    <string name="no_results">No Results Yet</string>
+    <string name="menu_insert">Add Item</string>
+    <string name="menu_delete">Remove Item</string>
+    <string name="title">Title</string>
+    <string name="body">Body</string>
+    <string name="confirm">Confirm</string>
+    <string name="edit_note">Edit Note</string>
 </resources>

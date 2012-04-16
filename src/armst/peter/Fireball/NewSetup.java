@@ -4,6 +4,9 @@ import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ArrayAdapter;
@@ -15,6 +18,7 @@ public class NewSetup extends Activity
 {
 	private Spinner mastSpinner, sailSpinner;
 	private Button submit;
+	private Button home;
 	public static final String PREFS_NAME="MyPrefsFile";
 //	private Button goSettings;
     @Override
@@ -35,6 +39,16 @@ public class NewSetup extends Activity
     sailAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
     sailSpinner.setAdapter(sailAdapter);
 
+    home=(Button) findViewById(R.id.homeButton);
+	home.setOnClickListener(new OnClickListener() {
+		@Override
+		  public void onClick(View v) {
+	 
+		   
+		    Intent i = new Intent(NewSetup.this, Main.class);
+		    startActivity(i);
+		  }
+	});
    
     submit = (Button) findViewById(R.id.submit);
     
@@ -59,8 +73,42 @@ public class NewSetup extends Activity
 	    Intent i = new Intent(NewSetup.this, FireballActivity.class);
 	    
         startActivity(i);
+        
 	  }
  
 	});
      }
+   
+    
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		MenuInflater inflater = getMenuInflater();
+		inflater.inflate(R.menu.mainmenu, menu);
+		return true;
+	}
+
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		switch (item.getItemId()) {
+		// We have only one menu option
+		
+		case R.id.home:
+			Intent i = new Intent(NewSetup.this, Main.class);
+			startActivity(i);
+			break;
+		case R.id.settingsMenu:
+			i=new Intent(NewSetup.this, Settings.class);
+			startActivity(i);
+			break;
+		case R.id.newSetup:
+			// Launch Preference activity
+			i = new Intent(NewSetup.this, NewSetup.class);
+			startActivity(i);
+			// Some feedback to the user
+			break;
+			
+
+		}
+		return true;
+	}
 }

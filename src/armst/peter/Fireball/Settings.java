@@ -1,27 +1,43 @@
 package armst.peter.Fireball;
 import android.app.Activity;
+import android.widget.Button;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.TextView;
 
 public class Settings extends Activity
 {
+	private Button home;
 	public static final String PREFS_NAME="MyPrefsFile";
-		
+	
    public void onCreate(Bundle savedInstanceState)
    {
+	   
      super.onCreate(savedInstanceState);
      setContentView(R.layout.settings_layout);
      Bundle bundle=getIntent().getExtras();
-     
      String rake="";
      String fairleadFromCentre = "";
      String centerboard = ""; 
      String tension="";
+     
+     home=(Button) findViewById(R.id.homeButton);
+	 home.setOnClickListener(new OnClickListener() {
+ 		@Override
+ 		  public void onClick(View v) {
+ 	 
+ 		   
+ 		    Intent i = new Intent(Settings.this, Main.class);
+ 		    startActivity(i);
+ 		  }
+ 	});
      
      
      String weather=bundle.getString("WEATHER");
@@ -265,6 +281,7 @@ public class Settings extends Activity
     
     
   }
+ 
    
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
@@ -282,7 +299,7 @@ public class Settings extends Activity
 			Intent i = new Intent(Settings.this, Main.class);
 			startActivity(i);
 			break;
-		case R.id.settings:
+		case R.id.settingsMenu:
 			i=new Intent(Settings.this, Settings.class);
 			startActivity(i);
 			break;
@@ -292,7 +309,12 @@ public class Settings extends Activity
 			startActivity(i);
 			// Some feedback to the user
 			break;
-			
+		case R.id.weather:
+			// Launch Preference activity
+			i = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.met.ie/forecasts/sea-area.asp"));
+			startActivity(i);
+			// Some feedback to the user
+			break;
 
 		}
 		return true;
