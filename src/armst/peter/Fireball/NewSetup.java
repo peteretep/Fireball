@@ -22,93 +22,59 @@ public class NewSetup extends Activity
 	public static final String PREFS_NAME="MyPrefsFile";
 //	private Button goSettings;
     @Override
-    public void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) 
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.new_setup);
         
         
-    mastSpinner = (Spinner) findViewById(R.id.mastSpinner);
-    ArrayAdapter<CharSequence> mastAdapter = ArrayAdapter.createFromResource(
-            this, R.array.mast_array, android.R.layout.simple_spinner_item);
-    mastAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-    mastSpinner.setAdapter(mastAdapter);
+	    mastSpinner = (Spinner) findViewById(R.id.mastSpinner);
+	    ArrayAdapter<CharSequence> mastAdapter = ArrayAdapter.createFromResource(
+        this, R.array.mast_array, android.R.layout.simple_spinner_item);
+	    mastAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+	    mastSpinner.setAdapter(mastAdapter);
     
-    sailSpinner = (Spinner) findViewById(R.id.sailSpinner);
-    ArrayAdapter<CharSequence> sailAdapter = ArrayAdapter.createFromResource(
-            this, R.array.sail_array, android.R.layout.simple_spinner_item);
-    sailAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-    sailSpinner.setAdapter(sailAdapter);
+	    sailSpinner = (Spinner) findViewById(R.id.sailSpinner);
+	    ArrayAdapter<CharSequence> sailAdapter = ArrayAdapter.createFromResource(
+        this, R.array.sail_array, android.R.layout.simple_spinner_item);
+		sailAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+		sailSpinner.setAdapter(sailAdapter);
 
-    home=(Button) findViewById(R.id.homeButton);
-	home.setOnClickListener(new OnClickListener() {
-		@Override
-		  public void onClick(View v) {
-	 
-		   
+	    home=(Button) findViewById(R.id.homeButton);
+		home.setOnClickListener(new OnClickListener() 
+		{
+			@Override
+			public void onClick(View v) 
+			{
 		    Intent i = new Intent(NewSetup.this, Main.class);
 		    startActivity(i);
-		  }
-	});
+			}
+		});
    
-    submit = (Button) findViewById(R.id.submit);
-    
-	submit.setOnClickListener(new OnClickListener() {
- 
-	  @Override
-	  public void onClick(View v) {
- 
-		  SharedPreferences settings = getSharedPreferences(PREFS_NAME, MODE_WORLD_READABLE);
-		  SharedPreferences.Editor editor=settings.edit();
-		  editor.putBoolean("HaveShownPrefs", true);
-		  editor.putString("MAST", String.valueOf(mastSpinner.getSelectedItem()));
-		  editor.putString("SAILS", String.valueOf(sailSpinner.getSelectedItem()));
-		  editor.commit();
-		  
-		  
-	    Toast.makeText(NewSetup.this,
-		"Setup : " + 
-                "\nMast : "+ String.valueOf(mastSpinner.getSelectedItem()) + 
-                "\nSails : "+ String.valueOf(sailSpinner.getSelectedItem()),
-			Toast.LENGTH_SHORT).show();
-	    Intent i = new Intent(NewSetup.this, FireballActivity.class);
+	    submit = (Button) findViewById(R.id.submit);
 	    
-        startActivity(i);
-        
-	  }
- 
-	});
-     }
-   
-    
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		MenuInflater inflater = getMenuInflater();
-		inflater.inflate(R.menu.mainmenu, menu);
-		return true;
-	}
-
-	@Override
-	public boolean onOptionsItemSelected(MenuItem item) {
-		switch (item.getItemId()) {
-		// We have only one menu option
-		
-		case R.id.home:
-			Intent i = new Intent(NewSetup.this, Main.class);
-			startActivity(i);
-			break;
-		case R.id.settingsMenu:
-			i=new Intent(NewSetup.this, Settings.class);
-			startActivity(i);
-			break;
-		case R.id.newSetup:
-			// Launch Preference activity
-			i = new Intent(NewSetup.this, NewSetup.class);
-			startActivity(i);
-			// Some feedback to the user
-			break;
-			
-
-		}
-		return true;
+		submit.setOnClickListener(new OnClickListener() 
+		{
+			@Override
+			public void onClick(View v) 
+			{
+				SharedPreferences settings = getSharedPreferences(PREFS_NAME, MODE_WORLD_READABLE);
+				SharedPreferences.Editor editor=settings.edit();
+				editor.putBoolean("HaveShownPrefs", true);
+				editor.putString("MAST", String.valueOf(mastSpinner.getSelectedItem()));
+				editor.putString("SAILS", String.valueOf(sailSpinner.getSelectedItem()));
+				editor.commit();
+				    
+				Toast.makeText(NewSetup.this,
+				"Setup : " + 
+				"\nMast : "+ String.valueOf(mastSpinner.getSelectedItem()) + 
+				"\nSails : "+ String.valueOf(sailSpinner.getSelectedItem()),
+				Toast.LENGTH_SHORT).show();
+				Intent i = new Intent(NewSetup.this, FireballActivity.class);
+				
+				startActivity(i);
+		  }
+	 
+		});
 	}
 }

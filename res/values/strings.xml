@@ -16,10 +16,10 @@
     
     <string name="weather_prompt">What is the weather like?</string>
     <string-array name="weather_array">
-        <item>Heavy</item>
-        <item>Medium</item>
-        <item>Light</item>
-        <item >Very Light</item>
+        <item>16+ kts</item>
+        <item>11-15 kts</item>
+        <item>6-10 kts</item>
+        <item >1-5 kts</item>
     </string-array>
     
     <string name="app_name">Fireball Settings</string>
